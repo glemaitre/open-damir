@@ -10,7 +10,7 @@ lexicon_filename = os.path.join(
     path_data, 'Lexique_open-DAMIR.xls'
 )
 sample_filename = os.path.join(
-    path_data, '*.csv'
+    path_data, 'A2015*.csv'
 )
 
 #%%
