@@ -38,4 +38,14 @@ for col_name in df_sample.columns:
     lexicon[col_name] = pd.read_excel(
         lexicon_filename, sheet_name=col_name, index_col=0
     )
+
+#%%
+xx = df_sample.merge(lexicon['ORG_CLE_REG'], on='ORG_CLE_REG')
+
+#%%
+for col_name, df_map in lexicon.items():
+    df_sample[col_name] = df_sample[col_name].map(
+        lexicon[col_name].iloc[:, 0]
+    )
+
 #%%
