@@ -29,7 +29,7 @@ code = pd.concat(code, axis=0)
 
 #%%
 sample_filename = os.path.join(
-    path_data, 'A201501.csv'
+    path_data, '2015*.csv'
 )
 df_sample = dd.read_csv(sample_filename, sep=';', usecols=range(55))
 df_sample = df_sample[df_sample['PRS_NAT'].isin(code.index)]
