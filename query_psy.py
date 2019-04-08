@@ -35,6 +35,6 @@ df_sample = dd.read_csv(sample_filename, sep=';', usecols=range(55))
 df_sample = df_sample[df_sample['PRS_NAT'].isin(code.index)]
 
 #%%
-df_sample.to_parquet('xxx.parquet')
+df_sample.to_parquet('psy.parquet')
 
 #%%
