@@ -9,14 +9,6 @@ path_data = 'data'
 lexicon_filename = os.path.join(
     path_data, 'Lexique_open-DAMIR.xls'
 )
-sample_filename = os.path.join(
-    path_data, 'A201501.csv'
-)
-
-#%%
-# Read a sample file to get the column
-df_sample = dd.read_csv(sample_filename, sep=';', usecols=range(55))
-df_sample.head()
 
 #%%
 df_act_cat = pd.read_excel(
@@ -34,5 +26,12 @@ for key in KEYWORDS:
         ]
     )
 code = pd.concat(code, axis=0)
+
+#%%
+sample_filename = os.path.join(
+    path_data, 'A201501.csv'
+)
+df_sample = dd.read_csv(sample_filename, sep=';', usecols=range(55))
+df_sample = df_sample[df_sample['PRS_NAT'].isin(code.index)]
 
 #%%
