@@ -46,6 +46,9 @@ coords = np.array(list(
 
 df['centers_x'] = coords[0]
 df['centers_y'] = coords[1]
-zeat_center = df.groupby('zeat_code')[('centers_x', 'centers_y')].mean()
-zeat_center.to_csv('zeat_to_gps.csv')
+zeat_center = df.groupby('zeat_libelle')[('zeat_code', 'centers_x', 'centers_y')].mean()
+zeat_center = zeat_center.reset_index()
+zeat_center['zeat_libelle'] = zeat_center['zeat_libelle'].astype(np.int64)
+zeat_center['zeat_code'] = zeat_center['zeat_code'].astype(np.int64)
+zeat_center.to_csv('zeat_to_gps.csv', index=False)
 
